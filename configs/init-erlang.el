@@ -1,3 +1,5 @@
+(setq erl-top "/usr/local/lib/erlang")
+
 (setq erlang-root-dir "/usr/local/lib/erlang")
 (setq tools-ver "2.6.6.6")
 (setq load-path (cons (concat erlang-root-dir "/lib/tools-" tools-ver "/emacs")

@@ -19,13 +19,16 @@
                       "~/.cabal/bin:"
                       "/usr/texbin:" (getenv "PATH")))
       (setenv "ERL_LIBS"
-              (concat "/Users/jlouis/lib/erlang"))
+              (concat "/Users/th/Library/Erlang/lib/"))
       (set-frame-font "Menlo-12")))
 
 (setq disabled-command-function nil)
 
-(setq emacs-config-dir (file-name-directory
-                        (or (buffer-file-name) load-file-name)))
+;; (setq emacs-config-dir (file-name-directory
+;;                         (or (buffer-file-name) load-file-name)))
+
+(setq emacs-config-dir "~/.emacs.d/")
+
 
 (add-to-list 'load-path emacs-config-dir)
 (add-to-list 'load-path (concat emacs-config-dir "/site/"))
@@ -129,6 +132,7 @@
        ;; byte-compile load vc-svn and that fails
        ;; see https://github.com/dimitri/el-get/issues/200
        :compile nil)
+   ;; do a svn checkout on the cmd line first to make ess install
    (:name ess
           :description "Emacs Speaks Statistics: statistical programming within Emacs"
           :type svn
@@ -153,8 +157,8 @@
          csv-mode
          dig
          ;;flymake-point
-         slime
-         ac-slime
+         ;; slime
+         ;; ac-slime
          gist tuareg-mode
          go-mode
          graphviz-dot-mode
@@ -185,12 +189,12 @@
 
 (defun dark ()
   (interactive)
-  (load-theme 'solarized-dark))
+  (load-theme 'solarized-dark t))
 (defun light ()
   (interactive)
-  (load-theme 'solarized-light))
+  (load-theme 'solarized-light t))
 
-(light)
+;;(dark)
 (if (string-equal "darwin" (symbol-name system-type))
   (progn
     (set-frame-font "Menlo-12")))
@@ -205,7 +209,7 @@
 ;; Now, load the config files one at a time
 (load-config-files  '("defuns" ;; Has to go first
                       "global" ;; Has to go second
-                      "init-auctex"
+                     ;; "init-auctex"
                       "init-ido"
                       "init-c-mode"
                       "init-erlang"
@@ -214,9 +218,9 @@
                       "init-recentf"
                       "init-tramp"
                       "init-flymake"
-                      "init-agda2"
+                      ;;"init-agda2"
                       "init-hippie-expand"
-                      "init-proofgeneral"
+                      ;;"init-proofgeneral"
                       "init-uniquify"))
 
 ;; Awfully simple initializations
@@ -225,5 +229,8 @@
 ;; Get our custom configuration loaded
 (load custom-file 'noerror)
 ;;; init.el ends here
+(dark)
+;;(load-theme 'solarized-dark t)
+;(load-theme 'pastels-on-dark)
 (server-start)
 
