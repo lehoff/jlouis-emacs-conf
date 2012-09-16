@@ -1,3 +1,18 @@
+;; EQC Emacs Mode -- Configuration Start
+(add-to-list 'load-path "/Users/th/Library/Erlang/lib/eqc-1.27.1/emacs/")
+(autoload 'eqc-erlang-mode-hook "eqc-ext" "EQC Mode" t)
+(add-hook 'erlang-mode-hook 'eqc-erlang-mode-hook)
+(setq eqc-max-menu-length 30)
+(setq eqc-root-dir "/Users/th/Library/Erlang/lib/eqc-1.27.1")
+;; EQC Emacs Mode -- Configuration End
+
+;; Erlang Emacs Mode -- Configuration Start
+(setq erlang-root-dir "/usr/lib/erlang")
+(setq load-path (cons "/usr/lib/erlang/lib/tools-2.6.7/emacs" load-path))
+(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+(require 'erlang-start)
+;; Erlang Emacs Mode -- Configuration End
+
 ;; init.el --- Initialization file for my Emacs setup
 ;;; Commentary:
 
@@ -170,7 +185,7 @@
          nxhtml
          org-mode
          rainbow-delimiters
-         sml-mode
+         ;; sml-mode
          ssh-config
          )
        (if (string-equal "darwin" (symbol-name system-type))
@@ -194,7 +209,7 @@
   (interactive)
   (load-theme 'solarized-light t))
 
-;;(dark)
+(dark)
 (if (string-equal "darwin" (symbol-name system-type))
   (progn
     (set-frame-font "Menlo-12")))

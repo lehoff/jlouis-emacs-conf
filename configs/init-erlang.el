@@ -1,7 +1,7 @@
-(setq erl-top "/usr/local/lib/erlang")
+(setq erl-top "/usr/lib/erlang")
 
-(setq erlang-root-dir "/usr/local/lib/erlang")
-(setq tools-ver "2.6.6.6")
+(setq erlang-root-dir "/usr/lib/erlang")
+(setq tools-ver "2.6.7")
 (setq load-path (cons (concat erlang-root-dir "/lib/tools-" tools-ver "/emacs")
                       load-path))
 (setq exec-path (cons (concat erlang-root-dir "/bin")
@@ -9,8 +9,9 @@
 (require 'erlang-start)
 
 ;; Wrangler
-
-(add-to-list 'load-path "/usr/local/share/wrangler/elisp")
+;; install with brew!
+(add-to-list 'load-path
+             "/usr/local/Cellar/wrangler/0.9.3.1/share/wrangler/elisp")
 (require 'wrangler)
 
 (add-hook 'erlang-mode-hook 'esk-prog-mode-hook)
