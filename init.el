@@ -208,7 +208,7 @@
 	     (concat emacs-config-dir "themes/"))
 (setq custom-safe-themes t)
 
-(load-theme 'tomorrow-night)
+(load-theme 'tomorrow-night-bright)
 
 (if (string-equal "darwin" (symbol-name system-type))
   (progn
