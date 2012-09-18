@@ -54,6 +54,7 @@
 (setq-default shift-select-mode nil)
 (setq-default default-tab-width 8)
 (setq-default indent-tabs-mode nil)
+(setq-default require-final-newline t) 
 (setq tab-always-indent 'complete)
 (setq-default line-number-mode t)
 (setq-default column-number-mode t)
@@ -72,7 +73,6 @@
 
 (setq scroll-preserve-screen-position 1)
 
-(electric-pair-mode t)
 (electric-indent-mode t)
 (electric-layout-mode t)
 
@@ -141,19 +141,12 @@
 (global-set-key (kbd "C-c j") 'join-line)
 (global-set-key (kbd "C-c r") 'vc-git-grep)
 (global-set-key (kbd "C-c |") 'align)
+(global-set-key (kbd "C-c c") 'ace-jump-mode)
+
 ;;; global.el ends here
 
-;; whitespace mode
-(autoload 'whitespace-mode "whitespace" "Toggle whitespace visualization." t)
-(autoload 'whitespace-toggle-options "whitespace"
-  "Toggle local `whitespace-mode' options." t)
-
 (setq sentence-end-double-space nil
-      
       uniquify-buffer-name-style 'forward
-      whitespace-style '(face trailing lines lines-tail tabs space-before-tab
-                              space-after-tab)
-      whitespace-line-column 80
       ediff-window-setup-function 'ediff-setup-windows-plain
       oddmuse-directory "~/.emacs.d/oddmuse"
       save-place-file "~/.emacs.d/places"

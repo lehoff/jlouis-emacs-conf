@@ -1,3 +1,4 @@
+
 (setq erl-top "/usr/lib/erlang")
 
 (setq erlang-root-dir "/usr/lib/erlang")
@@ -6,9 +7,13 @@
                       load-path))
 (setq exec-path (cons (concat erlang-root-dir "/bin")
                       exec-path))
+
 (require 'erlang-start)
+(require 'distel)
+(distel-setup)
 
 ;; Wrangler
+
 ;; install with brew!
 (add-to-list 'load-path
              "/usr/local/Cellar/wrangler/0.9.3.1/share/wrangler/elisp")
@@ -24,6 +29,5 @@
                            (regexp . ",\\(\\s-+\\)")
                            (repeat . t)
                            (modes quote (erlang-mode))))))
-
 
 

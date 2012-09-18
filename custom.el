@@ -14,6 +14,8 @@
  '(default-frame-alist (quote ((tool-bar-lines . 0) (menu-bar-lines . 1) (foreground-color . "Black") (background-color . "White") (cursor-type . box) (cursor-color . "Red") (vertical-scroll-bars . right) (internal-border-width . 0) (left-fringe . 1) (right-fringe) (fringe))))
  '(global-hl-line-mode nil)
  '(global-linum-mode nil)
+ '(agda2-include-dirs (quote ("." "/Users/jlouis/lib/agda/lib-0.6/src")))
+ '(compilation-ask-about-save nil)
  '(ido-ubiquitous-command-exceptions (quote (find-tag erlang-find-tag)))
  '(indicate-buffer-boundaries (quote left))
  '(ns-alternate-modifier nil)
@@ -29,7 +31,6 @@
  '(size-indication-mode t)
  '(tool-bar-mode nil)
  '(visual-line-mode nil t)
- '(wrangler-search-paths (quote ("/Users/jlouis/Projects/issuu/payflow")))
  '(yas/snippet-dirs (quote ("~/.emacs.d/snippets" "~/.emacs.d/el-get/yasnippet/snippets")) nil (yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -35,6 +35,9 @@
                       "/usr/texbin:" (getenv "PATH")))
       (setenv "ERL_LIBS"
               (concat "/Users/th/Library/Erlang/lib/"))
+      (set-fontset-font "fontset-default"
+                        'unicode
+                        '("Menlo" . "iso10646-1"))
       (set-frame-font "Menlo-12")))
 
 (setq disabled-command-function nil)
@@ -72,6 +75,14 @@
 ;;; el-get configuration
 (add-to-list 'load-path (concat emacs-config-dir "/el-get/el-get"))
 
+;;; Erlang mode load path needs to go here. Otherwise distel will not like us
+(setq erlang-root-dir "/usr/local/lib/erlang")
+(setq tools-ver "2.6.7")
+(setq load-path (cons (concat erlang-root-dir "/lib/tools-" tools-ver "/emacs")
+                      load-path))
+(setq exec-path (cons (concat erlang-root-dir "/bin")
+                      exec-path))
+
 (unless (require 'el-get nil t)
   (with-current-buffer
       (url-retrieve-synchronously
@@ -94,12 +105,6 @@
           :after (lambda ()
                    (progn
                      (require 'inf-haskell))))
-   (:name pastels-on-dark-theme
-          :type elpa)
-   (:name solarized-theme
-          :type elpa)
-   (:name zenburn-theme
-          :type elpa)
    (:name idle-highlight-mode
           :type elpa)
    (:name ido-ubiquitous
@@ -171,10 +176,10 @@
          ;;ProofGeneral
          csv-mode
          dig
-         ;;flymake-point
-         ;; slime
-         ;; ac-slime
-         gist tuareg-mode
+	 distel
+         ess ;;ess-edit ess-smart-underscore
+         ace-jump-mode
+	 tuareg-mode
          go-mode
          graphviz-dot-mode
          haskell-mode
@@ -184,8 +189,7 @@
          magithub
          nxhtml
          org-mode
-         rainbow-delimiters
-         ;; sml-mode
+         ;;sml-mode
          ssh-config
          )
        (if (string-equal "darwin" (symbol-name system-type))
@@ -200,16 +204,12 @@
 ;(el-get 'wait)
 
 ;; Setup a theme, it is a solarized variant
+(add-to-list 'custom-theme-load-path
+	     (concat emacs-config-dir "themes/"))
 (setq custom-safe-themes t)
 
-(defun dark ()
-  (interactive)
-  (load-theme 'solarized-dark t))
-(defun light ()
-  (interactive)
-  (load-theme 'solarized-light t))
+(load-theme 'tomorrow-night)
 
-(dark)
 (if (string-equal "darwin" (symbol-name system-type))
   (progn
     (set-frame-font "Menlo-12")))
@@ -224,7 +224,7 @@
 ;; Now, load the config files one at a time
 (load-config-files  '("defuns" ;; Has to go first
                       "global" ;; Has to go second
-                     ;; "init-auctex"
+                      ;"init-auctex"
                       "init-ido"
                       "init-c-mode"
                       "init-erlang"
@@ -236,6 +236,7 @@
                       ;;"init-agda2"
                       "init-hippie-expand"
                       ;;"init-proofgeneral"
+                      ;;"init-twelf"
                       "init-uniquify"))
 
 ;; Awfully simple initializations
@@ -244,7 +245,7 @@
 ;; Get our custom configuration loaded
 (load custom-file 'noerror)
 ;;; init.el ends here
-(dark)
+;;(dark)
 ;;(load-theme 'solarized-dark t)
 ;(load-theme 'pastels-on-dark)
 (server-start)
