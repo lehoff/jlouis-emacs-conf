@@ -42,10 +42,10 @@
 
 (setq disabled-command-function nil)
 
-;; (setq emacs-config-dir (file-name-directory
-;;                         (or (buffer-file-name) load-file-name)))
+(setq emacs-config-dir (file-name-directory
+                        (or (buffer-file-name) load-file-name)))
 
-(setq emacs-config-dir "~/.emacs.d/")
+;;(setq emacs-config-dir "~/.emacs.d/")
 
 
 (add-to-list 'load-path emacs-config-dir)
@@ -208,9 +208,7 @@
 	     (concat emacs-config-dir "themes/"))
 (setq custom-safe-themes t)
 
-(interactive)
-(load-theme 'tomorrow-night-bright t)
-(disable-theme 'tomorrow-night-bright)
+
 (load-theme 'tomorrow-night-bright t)
 
 (if (string-equal "darwin" (symbol-name system-type))
@@ -248,8 +246,5 @@
 ;; Get our custom configuration loaded
 (load custom-file 'noerror)
 ;;; init.el ends here
-;;(dark)
-;;(load-theme 'solarized-dark t)
-;(load-theme 'pastels-on-dark)
 (server-start)
 
