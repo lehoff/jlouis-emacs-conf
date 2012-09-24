@@ -15,6 +15,17 @@
 
 ;; init.el --- Initialization file for my Emacs setup
 ;;; Commentary:
+;(setq mac-command-modifier 'meta
+;      mac-option-modifier 'none
+;      default-input-method "MacOSX")
+;(setq mac-function-modifier 'meta)
+(global-set-key [s-left] 'beginning-of-line)
+(global-set-key [s-right] 'end-of-line)
+(global-set-key [s-up] 'beginning-of-buffer)
+(global-set-key [s-down] 'end-of-buffer)
+(global-set-key [M-right] 'forward-word)
+(global-set-key [M-left] 'backward-word)
+
 
 ;; Get up and running, set custom to something else, and set up load paths
 ;; for the rest of the system. Then proceed to load each configuration file
