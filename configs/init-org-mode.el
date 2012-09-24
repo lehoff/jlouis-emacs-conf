@@ -15,3 +15,8 @@
   ;; (auto-save-mode 1)   ; this is unecessary as it is on by default
   (set (make-local-variable 'auto-save-visited-file-name) t)
   (setq auto-save-interval 20))
+
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
