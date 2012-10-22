@@ -51,7 +51,7 @@
 (setq-default inhibit-startup-message t)
 (setq-default global-font-lock-mode t)
 (setq-default delete-by-moving-to-trash t)
-(setq-default shift-select-mode nil)
+;; (setq-default shift-select-mode nil)
 (setq-default default-tab-width 8)
 (setq-default indent-tabs-mode nil)
 (setq-default require-final-newline t) 

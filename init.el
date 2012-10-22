@@ -7,18 +7,21 @@
 ;; EQC Emacs Mode -- Configuration End
 
 ;; Erlang Emacs Mode -- Configuration Start
-(setq erlang-root-dir "/usr/lib/erlang")
-(setq load-path (cons "/usr/lib/erlang/lib/tools-2.6.7/emacs" load-path))
-(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
-(require 'erlang-start)
+;; (setq erlang-root-dir "/usr/local/lib/erlang")
+;; (setq load-path (cons "/usr/local/lib/erlang/lib/tools-2.6.8/emacs" load-path))
+;; (setq exec-path (cons "/usr/local/lib/erlang/bin" exec-path))
+;; (require 'erlang-start)
 ;; Erlang Emacs Mode -- Configuration End
+
+;;(require 'taskjuggler-mode)
+
 
 ;; init.el --- Initialization file for my Emacs setup
 ;;; Commentary:
 ;(setq mac-command-modifier 'meta
 ;      mac-option-modifier 'none
 ;      default-input-method "MacOSX")
-;(setq mac-function-modifier 'meta)
+(setq mac-function-modifier 'meta)
 (global-set-key [s-left] 'beginning-of-line)
 (global-set-key [s-right] 'end-of-line)
 (global-set-key [s-up] 'beginning-of-buffer)
@@ -49,7 +52,8 @@
       (set-fontset-font "fontset-default"
                         'unicode
                         '("Menlo" . "iso10646-1"))
-      (set-frame-font "Menlo-12")))
+      (set-frame-font "Menlo-12")
+      (set-frame-size (selected-frame) 100 50)))
 
 (setq disabled-command-function nil)
 
@@ -88,7 +92,7 @@
 
 ;;; Erlang mode load path needs to go here. Otherwise distel will not like us
 (setq erlang-root-dir "/usr/local/lib/erlang")
-(setq tools-ver "2.6.7")
+(setq tools-ver "2.6.8")
 (setq load-path (cons (concat erlang-root-dir "/lib/tools-" tools-ver "/emacs")
                       load-path))
 (setq exec-path (cons (concat erlang-root-dir "/bin")
@@ -236,7 +240,7 @@
 ;; Now, load the config files one at a time
 (load-config-files  '("defuns" ;; Has to go first
                       "global" ;; Has to go second
-                      ;"init-auctex"
+                      ;; "init-auctex"
                       "init-ido"
                       "init-c-mode"
                       "init-erlang"
@@ -245,11 +249,12 @@
                       "init-recentf"
                       "init-tramp"
                       "init-flymake"
-                      ;;"init-agda2"
+                      ;; "init-agda2"
                       "init-hippie-expand"
-                      ;;"init-proofgeneral"
-                      ;;"init-twelf"
-                      "init-uniquify"))
+                      ;; "init-proofgeneral"
+                      ;; "init-twelf"
+                      "init-uniquify"
+                      ))
 
 ;; Awfully simple initializations
 (require 'midnight)

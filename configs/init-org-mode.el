@@ -11,9 +11,9 @@
 (setq org-log-done 'note)
 
 (add-hook 'org-mode-hook 'my-org-mode-autosave-settings)
-(defun my-org-mode-autosave-settings
+(defun my-org-mode-autosave-settings () "Customisation of org-mode autosave"
   ;; (auto-save-mode 1)   ; this is unecessary as it is on by default
-  (set (make-local-variable 'auto-save-visited-file-name) t)
+  ;(set (make-local-variable 'auto-save-visited-file-name) t)
   (setq auto-save-interval 20))
 
 (global-set-key "\C-cl" 'org-store-link)
