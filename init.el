@@ -240,7 +240,7 @@
 ;; Now, load the config files one at a time
 (load-config-files  '("defuns" ;; Has to go first
                       "global" ;; Has to go second
-                      ;; "init-auctex"
+                      "init-auctex"
                       "init-ido"
                       "init-c-mode"
                       "init-erlang"
